@@ -1,13 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link href="./css/index.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JMT</title>
+</head>
+
+<body>
+  <header>
+    <button type="button">배경변경</button>
+  </header>
+
+  <section>
+    <div id="localInfo" class="local-info-wrap">
+      <div id="city" class="local-info-city">
+        <div class="location-city">현재 위치한 도시</div>
+      </div>
+
+      <div class="info">
+        <div id="date" class="local-item local-info-date">5:45 6월 18일 월요일</div>
+        <div id="weather" class="local-item local-info-weather">cloudy 15℃</div>
+      </div>
+    </div>
+
+
+    <div id="todo" class="todo-main-wrap">
+      <div class="todo-navbar">
+        <!-- <div id="category" class="todo-item"> 카테고리 </div> -->
+        <button id="delbutton" type="button">카테고리</button>
+        <div id="innertodo" class="">
+          <input type="text" size="80">
+        </div>
+        <!-- <div id="delbutton" class="todo-item">삭제버튼</div> -->
+        <button id="delbutton" type="button">삭제버튼</button>
+      </div>
+
+      <div class="todo-inner-wrap">
+        <div class="todo-container">
+          <div></div>
+          <div id="todoContext">오늘의 할일을 입력하시오? 오늘의 할일은?</div>
+          <!-- <input id="todoDelete" class="todo-check" type="button"> -->
+          <input id="todoCheck" class="todo-check" type="checkbox">
+        </div>
+
+        <div class="todo-container">
+          <div></div>
+          <div id="todoContext">오늘의 할일을 입력하시오? 오늘의 할일은?</div>
+          <!-- <input id="todoDelete" class="todo-check" type="button"> -->
+          <input id="todoCheck" class="todo-check" type="checkbox">
+        </div>
+
+        <div class="todo-container">
+          <div></div>
+          <div id="todoContext">오늘의 할일을 입력하시오? 오늘의 할일은?</div>
+          <!-- <input id="todoDelete" class="todo-check" type="button"> -->
+          <input id="todoCheck" class="todo-check" type="checkbox">
+        </div>
+
+
+
+
+      </div>
+    </div>
+
+    <div id="bookmark" class="bookmark-wrap">
+
+      <div class="book-container">
+        <img src="https://via.placeholder.com/600" class="imgsize">
+        <div class="icon-name"> 아이콘 </div>
+      </div>
+
+      <div class="book-container">
+        <img src="https://via.placeholder.com/600" class="imgsize">
+        <div class="icon-name"> 아이콘 </div>
+      </div>
+
+      <div class="book-container">
+        <img src="https://via.placeholder.com/600" class="imgsize">
+        <div class="icon-name"> 아이콘 </div>
+      </div>
+
+      <div class="book-container">
+        <img src="https://via.placeholder.com/600" class="imgsize">
+        <div class="icon-name"> 아이콘 </div>
+      </div>
+
+      <div class="book-container">
+        <img src="https://via.placeholder.com/600" class="imgsize">
+        <div class="icon-name"> 아이콘 </div>
+      </div>
+
+      <div class="book-container">
+        <img src="https://via.placeholder.com/600" class="imgsize">
+        <div class="icon-name"> 추가하기 </div>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+
 </html>
