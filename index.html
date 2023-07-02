@@ -10,9 +10,172 @@
 </head>
 
 <body>
+
+
+  <template id="modelTemplate" class="model-category">
+    <div id="blackBG" class="black-bg">
+      <div id="whiteBG" class="white-bg">
+        <div id="category" class="category-main-wrap">
+  
+          <header>
+            <div class="header-name"> 카테고리 </div>
+            <button type="button">적용</button>
+          </header>
+  
+          <div class="category-list">
+            <div id="category" class="category-input">
+              <input type="text" >
+              <button type="button">추가</button>
+            </div>
+  
+            <div class="todo-inner-wrap category-array">
+              <div class="todo-container">
+                <div></div>
+                <div id="todoContext">내용</div>
+                <input id="todoCheck" class="todo-check" type="checkbox">
+              </div>
+      
+              <div class="todo-container">
+                <div></div>
+                <div id="todoContext">내용</div>
+                <input id="todoCheck" class="todo-check" type="checkbox">
+              </div>
+      
+              <div class="todo-container">
+                <div></div>
+                <div id="todoContext">내용</div>
+                <input id="todoCheck" class="todo-check" type="checkbox">
+              </div>
+  
+              <div class="todo-container">
+                <div></div>
+                <div id="todoContext">내용</div>
+                <input id="todoCheck" class="todo-check" type="checkbox">
+              </div>
+  
+              <div class="todo-container">
+                <div></div>
+                <div id="todoContext">내용</div>
+                <input id="todoCheck" class="todo-check" type="checkbox">
+              </div>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template class="model-background">
+    <div div id="blackBG" class="black-bg">
+      <div class="white-bg">
+        <div id="category" class="category-main-wrap">
+  
+          <header>
+            <div class="header-name"> 배경변경 </div>
+          </header>
+          
+          <div id="bgChange" class="bgChange-wrap">
+  
+            <div class="icon-container">
+              <img src="https://via.placeholder.com/600" class="imgsize">
+            </div>
+      
+            <div class="icon-container">
+              <img src="https://via.placeholder.com/600" class="imgsize">
+            </div>
+      
+            <div class="icon-container">
+              <img src="https://via.placeholder.com/600" class="imgsize">
+            </div>
+      
+            <div class="icon-container">
+              <img src="https://via.placeholder.com/600" class="imgsize">
+            </div>
+      
+            <div class="icon-container">
+              <img src="https://via.placeholder.com/600" class="imgsize">
+            </div>
+      
+            <div class="icon-container">
+              <img src="https://via.placeholder.com/600" class="imgsize">
+            </div>
+      
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template class="model-edit-shortLink">
+    <div div id="blackBG" class="black-bg">
+      <div class="white-bg">
+        <div id="category" class="category-main-wrap">
+  
+          <header>
+            <div class="header-name"> 바로가기 수정 </div>
+          </header>
+          
+          <div id="shortLink" class="shortLink-wrap">
+            <div>
+              <p>이름</p>
+              <input type="text" size="35">
+              <p>URL</p>
+              <input type="text" size="35">  
+            </div>
+  
+            <div>
+              <button type="button">취소</button>
+              <button type="button">등록</button>  
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template class="model-add-shortLink">
+    <div div id="blackBG" class="black-bg">
+      <div class="white-bg">
+        <div id="category" class="category-main-wrap">
+  
+          <header>
+            <div class="header-name"> 바로가기 추가 </div>
+          </header>
+          
+          <div id="shortLink" class="shortLink-wrap">
+            <div>
+              <p>이름</p>
+              <input type="text" size="35">
+              <p>URL</p>
+              <input type="text" size="35">  
+            </div>
+  
+            <div>
+              <button type="button">취소</button>
+              <button type="button">등록</button>  
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template class="model-option-shortLink">
+    <div id="shortLink" class="">
+      <div>수정</div>
+      <div>삭제</div>
+    </div>
+  </template>
+
+
   <header>
     <button type="button">배경변경</button>
   </header>
+
 
   <section>
     <div id="localInfo" class="local-info-wrap">
@@ -26,11 +189,10 @@
       </div>
     </div>
 
-
     <div id="todo" class="todo-main-wrap">
       <div class="todo-navbar">
         <!-- <div id="category" class="todo-item"> 카테고리 </div> -->
-        <button id="delbutton" type="button">카테고리</button>
+        <button id="openModelBtn" type="button">카테고리</button>
         <div id="innertodo" class="">
           <input type="text" size="80">
         </div>
@@ -59,47 +221,70 @@
           <!-- <input id="todoDelete" class="todo-check" type="button"> -->
           <input id="todoCheck" class="todo-check" type="checkbox">
         </div>
-
-
-
-
       </div>
     </div>
 
     <div id="bookmark" class="bookmark-wrap">
 
-      <div class="book-container">
+      <div class="icon-container">
+        <!-- <div class="imgsize"> </div> -->
+        <img src="https://cdn-icons-png.flaticon.com/512/17/17764.png" class="box">
+        <img src="https://via.placeholder.com/600" class="imgsize">
+        <div class="icon-name"> 아이콘 </div>
+      </div>
+      
+      <div class="icon-container">
+        <img src="https://cdn-icons-png.flaticon.com/512/17/17764.png" class="box">
         <img src="https://via.placeholder.com/600" class="imgsize">
         <div class="icon-name"> 아이콘 </div>
       </div>
 
-      <div class="book-container">
+      <div class="icon-container">
+        <img src="https://cdn-icons-png.flaticon.com/512/17/17764.png" class="box">
         <img src="https://via.placeholder.com/600" class="imgsize">
         <div class="icon-name"> 아이콘 </div>
       </div>
 
-      <div class="book-container">
+      <div class="icon-container">
+        <img src="https://cdn-icons-png.flaticon.com/512/17/17764.png" class="box">
         <img src="https://via.placeholder.com/600" class="imgsize">
         <div class="icon-name"> 아이콘 </div>
       </div>
 
-      <div class="book-container">
+      <div class="icon-container">
+        <img src="https://cdn-icons-png.flaticon.com/512/17/17764.png" class="box">
         <img src="https://via.placeholder.com/600" class="imgsize">
         <div class="icon-name"> 아이콘 </div>
       </div>
 
-      <div class="book-container">
-        <img src="https://via.placeholder.com/600" class="imgsize">
-        <div class="icon-name"> 아이콘 </div>
-      </div>
-
-      <div class="book-container">
+      <div class="icon-container">
+        <div class="box">  </div>
         <img src="https://via.placeholder.com/600" class="imgsize">
         <div class="icon-name"> 추가하기 </div>
       </div>
 
     </div>
   </section>
+
+  <script>
+    const openModelBtn = document.getElementById('openModelBtn');
+    const modelTemplate = document.getElementById('modelTemplate');
+
+    openModelBtn.addEventListener('click', function () {
+      const clonedTemplate = modelTemplate.content.cloneNode(true);
+      modelTemplate.parentNode.replaceChild(clonedTemplate, modelTemplate);
+
+      const blackBG = document.getElementById('blackBG');
+
+      blackBG.addEventListener('click', function () {
+        // modelTemplate.parentNode.replaceChild(modelTemplate, modelTemplate);
+        // document.body.appendChild(clonedTemplate);
+        // this.parentNode.removeChild(this);
+      });
+      // modelTemplate.parentNode.replaceChild(clonedTemplate, modelTemplate);
+      // document.body.appendChild(clonedTemplate);
+    });
+  </script>
 
 </body>
 

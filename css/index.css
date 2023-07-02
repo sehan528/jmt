@@ -1,6 +1,7 @@
 body {
 	margin: 0;
 	padding: 0;
+	/* overflow: hidden; */
 }
 
 header {
@@ -11,14 +12,42 @@ header {
 	padding: 0 10px;
 }
 
+header > .header-name {
+	/* background-color: aliceblue; */
+	margin-right: auto; /* 왼쪽으로 이동시키기 위해 auto 값을 지정합니다 */
+}
+
 section {
 	height: calc(100vh - 50px);
 	max-width: 1024px;
 	margin: auto;
-
 }
 
+/* -------------------------- */
 
+.black-bg {
+    width : 100%;
+    height : 100%;
+    position :fixed;
+    background : rgba(0,0,0,0.5);
+    /* z-index : 0; */
+    padding: 30px;
+    /* display: none; */
+    /* visibility: hidden; */
+    /* opacity: 0; */
+
+    transition: all 0.6s;
+}
+
+.white-bg {
+    background: white;
+	width: 35%;
+	height: 450px;
+	margin: auto;
+
+    border-radius: 5px;
+    padding: 30px 30px;
+} 
 
 
 /* -------------------------- */
@@ -68,7 +97,7 @@ section {
 
 .todo-main-wrap {
 	/* background-color: green; */
-	height: 400px;
+	height: 350px;
 }
 
 .todo-main-wrap > .todo-navbar {
@@ -121,18 +150,18 @@ section {
 	gap: 20px;
 	justify-content: center; 
 	align-items: center;
-	height: 250px;
+	height: 300px;
 	overflow: auto;
 	
 }
 
-.book-container {
+.icon-container {
 	/* background-color: white; */
 	display: flex;
 	flex-direction: column;
-	justify-content: center; 
+	/* justify-content: center;  */
 	align-items: center;
-
+	/* border: 2px solid; */
 }
 
 .imgsize {
@@ -140,4 +169,67 @@ section {
 	height: auto;
 }
 
+.box {
+	margin-left: auto;
+	width: 20px;
+	height: 20px;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+	/* border-radius: 50%; */
+    cursor: pointer;
+}
 
+/* -------------------------- */
+
+
+
+.category-main-wrap {
+	width: 100%;
+	height: 100%;
+	/* display: flex; */
+	/* background-color: RED; */
+	border: 2px solid dimgray;
+	border-radius: 10px;
+}
+
+.category-list {
+	/* background-color: gray; */
+	/* border: 2px solid dimgray; */
+	border-radius: 10px;
+}
+
+.category-input {
+	/* background-color: gray; */
+	display: flex;
+	justify-content: space-around;
+}
+
+
+.bgChange-wrap {
+	display: grid;
+	grid-template-columns: repeat(3, 100px); /* 3개의 열을 생성 */
+	gap: 20px;
+	justify-content: center; 
+	align-items: center;
+	padding: 50px 0 0 0;
+	height: 250px;
+	overflow: auto;
+}
+
+.shortLink-wrap {
+	/* background-color: antiquewhite; */
+	width: auto;
+	height: auto;
+	padding: 50px 10px 10px 50px  ;
+	justify-content: center;
+	align-items: center;
+}
+
+.shortLink-wrap > div:last-child {
+	display: flex;
+	padding: 50px 50px;
+	justify-content:flex-end;
+}
+
+.shortLink-wrap > div:last-child > button {
+	margin-left: 50px;
+}
