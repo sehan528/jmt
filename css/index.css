@@ -155,13 +155,19 @@ section {
 	
 }
 
-.icon-container {
+.icon-container, .bg-container {
 	/* background-color: white; */
 	display: flex;
 	flex-direction: column;
 	/* justify-content: center;  */
 	align-items: center;
 	/* border: 2px solid; */
+
+	cursor: pointer;
+}
+
+.myBookmark-url {
+	display: none;
 }
 
 .imgsize {
@@ -232,4 +238,13 @@ section {
 
 .shortLink-wrap > div:last-child > button {
 	margin-left: 50px;
+}
+
+.modal-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	/* width: 100vh; */
+	/* height: 100vh; */
+	background-color: blueviolet;
 }
