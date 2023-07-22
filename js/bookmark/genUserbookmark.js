@@ -17,15 +17,14 @@ function generateBookmarkModal() {
     const $gbTemplate = document.getElementById("favoriteLinkModalTemplate");
     const modalHtml = $gbTemplate.innerHTML;
 
-
     $modalContainer.insertAdjacentHTML("beforeend", modalHtml);
     $bookmarkModal = document.getElementById("favoriteModel");
 }
 
 function settingEvent() {
     // 요소들 선언
-    const $blackBg = $bookmarkModal.querySelector(".black-bg");
-    const $whiteBg = $bookmarkModal.querySelector(".white-bg");
+    const $blackBg = $bookmarkModal.querySelector(".dimmer-bg");
+    const $whiteBg = $bookmarkModal.querySelector(".black-bg");
     const $exitBtn = $bookmarkModal.querySelector(".cancel");
 
 
@@ -46,7 +45,7 @@ function settingEvent() {
 function uploadMyBookmark() {
     const $submitBtn = $bookmarkModal.querySelector(".submit");
 
-    document.addEventListener("keydown", handleKeyPress);
+    $bookmarkModal.addEventListener("keydown", handleKeyPress);
     $submitBtn.addEventListener("click", handleKeyPress);
 
     function handleKeyPress(e) {
@@ -58,6 +57,20 @@ function uploadMyBookmark() {
                 alert("최대 길이를 초과했습니다.");
                 return;
             }
+
+            if ($markName.value.trim() === "" || $markURL.value.trim() === "") {
+                alert("양식을 올바르게 작성하십시오.");
+                return;
+            }
+            
+            // 
+            // url 검사
+            if (!/https?:\/\//g.test($markURL.value)) $markURL.value = `http://${$markURL.value}`;
+            if (!/https?:\/\/.+?\..{2,}/g.test($markURL.value)) {
+                alert("url 제대로 적으세요.");
+                return;
+            }
+
 
             const bookItem = {
                 Name: $markName.value,

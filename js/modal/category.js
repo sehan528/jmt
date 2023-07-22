@@ -17,8 +17,8 @@ function generateCatModal() {
 
 function settingEvent() {
     // 요소들 선언
-    const $blackBg = $catModal.querySelector(".black-bg");
-    const $whiteBg = $catModal.querySelector(".white-bg");
+    const $blackBg = $catModal.querySelector(".dimmer-bg");
+    const $whiteBg = $catModal.querySelector(".black-bg");
 
     $whiteBg.addEventListener("click", (e) => {
         e.stopPropagation();

@@ -6,8 +6,15 @@ export function genList(value) {
 }
 
 function generateTODOHTML(value) {
+    // TODO: 빈값은 인풋 안되게 validation check
+    // TODO: checked 쓸모 없으니 지우기
+
+    // 저장할 때 아래의 id 코드를 넣는다.
+    const todoId = `todo-${Date.now()}`;
+
     const newTodoContainer = document.createElement("div");
     newTodoContainer.classList.add("todo-container");
+    newTodoContainer.setAttribute("data-id", todoId);
 
     const emptyDiv = document.createElement("div");
     newTodoContainer.appendChild(emptyDiv);
@@ -28,7 +35,7 @@ function generateTODOHTML(value) {
     // 추출한 데이터를 객체로 저장
     const todoItem = {
         context: value,
-        checked: false,
+        postID: todoId,
     };
 
     // 배열에 저장
@@ -36,4 +43,6 @@ function generateTODOHTML(value) {
 
     // 배열을 LocalStorage에 저장
     localStorage.setItem("todoData", JSON.stringify(todoData));
+
+    // TODO: 저장되면 인풋창 내용 비우기
 }

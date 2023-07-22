@@ -1,7 +1,61 @@
 body {
 	margin: 0;
 	padding: 0;
-	/* overflow: hidden; */
+	background: #34354a;
+	background: linear-gradient(0deg, #34354a 0%, #000 100%);
+
+	/* background: linear-gradient(0deg, #696fda 0%, #dd6a6a 100%); */
+	/* background: linear-gradient(0deg, #27b98f 0%, #c82727 100%); */
+	/* background: linear-gradient(0deg, #a6a7b1 0%, #1fb563 100%); */
+	/* background: linear-gradient(0deg, #1149b1 0%, #222121 100%); */
+	/* background: linear-gradient(0deg, #de9e54 0%, #2c2cc8 100%); */
+	/* background: linear-gradient(0deg, #2fdf38 0%, #dd6a6a 100%); */
+
+
+	color: white;
+}
+
+*::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px #0000004d;
+	border-radius: 10px;
+	background-color: #0000;
+}
+
+*::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #0000;
+}
+
+*::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px #0000004d;
+	background-color: #555;
+}
+
+.btn {
+	padding: 6px 12px;
+	background-color: #fff2;
+	border: 1px solid #fff6;
+	border-radius: 4px;
+	color: white;
+}
+
+.btn:hover {
+	background-color: #fff4;
+}
+.btn:active {
+	background-color: #fff5;
+}
+
+.input-text {
+	padding: 6px 12px;
+	background-color: #fff2;
+	border: 1px solid #fff6;
+	border-radius: 4px;
+	color: white;
 }
 
 header {
@@ -12,9 +66,9 @@ header {
 	padding: 0 10px;
 }
 
-header > .header-name {
-	/* background-color: aliceblue; */
-	margin-right: auto; /* 왼쪽으로 이동시키기 위해 auto 값을 지정합니다 */
+header>.header-name {
+	margin-right: auto;
+	/* 왼쪽으로 이동시키기 위해 auto 값을 지정합니다 */
 }
 
 section {
@@ -25,91 +79,85 @@ section {
 
 /* -------------------------- */
 
-.black-bg {
-    width : 100%;
-    height : 100%;
-    position :fixed;
-    background : rgba(0,0,0,0.5);
-    /* z-index : 0; */
-    padding: 30px;
-    /* display: none; */
-    /* visibility: hidden; */
-    /* opacity: 0; */
-
-    transition: all 0.6s;
+.dimmer-bg {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background: #00000080;
+	padding: 30px;
+	transition: all 0.6s;
 }
 
-.white-bg {
-    background: white;
+.black-bg {
+	background: #000e;
 	width: 35%;
 	height: 450px;
 	margin: auto;
-
-    border-radius: 5px;
-    padding: 30px 30px;
-} 
-
+	border-radius: 5px;
+	padding: 30px 30px;
+	border: 1px solid dimgray;
+}
 
 /* -------------------------- */
 
 .local-info-wrap {
-	/* background-color: RED; */
 	height: 150px;
 }
 
 .local-info-city {
-	height: 30px;
+	height: 40px;
 	text-align: center;
 	display: flex;
 	padding: 10px 0;
 	justify-content: center;
 }
-.local-info-city > .location-city{
-	border: 1px solid lightgray;
-	border-radius: 4px;
-	display: flex;
+
+.local-info-city>.location-city, .city-weather {
+	width: 100%;
+	justify-content: center;
 	align-items: center;
+	display: flex;
 	padding: 0 10px;
+	background-color: #fff1;
 }
 
-.local-info-wrap > div:last-child {
+.local-info-wrap>div:last-child {
 	display: flex;
 	justify-content: space-evenly;
 }
 
 .local-item {
 	height: 70px;
+	width: 50%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	padding: 0 10px;
-	border: 2px solid dimgray;
-	border-radius: 10px;
 }
 
 .local-info-date {
+	font-size: x-large;
 }
 
 .local-info-weather {
+	font-size: x-large;
 }
 
 /* -------------------------- */
 
 .todo-main-wrap {
-	/* background-color: green; */
 	height: 350px;
 }
 
-.todo-main-wrap > .todo-navbar {
-	/* background-color: burlywood; */
-	height: 20px;
+.todo-main-wrap>.todo-navbar {
+	height: 50px;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
+	background-color: #fff2;
 }
 
-.todo-main-wrap > .todo-inner-wrap {
-	/* background-color: blueviolet; */
+.todo-main-wrap>.todo-inner-wrap {
 	height: 300px;
 	overflow: auto;
 
@@ -121,8 +169,11 @@ section {
 	justify-content: space-between;
 	align-items: center;
 	padding: 20px 50px;
+	background-color: #fff1;
 }
-
+.todo-container:hover {
+	background-color: #fff2;
+}
 
 .todo-item {
 	border: 2px solid dimgray;
@@ -130,11 +181,10 @@ section {
 }
 
 .todo-check {
-	width: 30px; /* 원하는 가로 크기 */
-	height: 30px; /* 원하는 세로 크기 */
+	width: 20px;
+  height: 20px;
+
 }
-
-
 
 
 
@@ -142,27 +192,23 @@ section {
 
 /* -------------------------- */
 
-
 .bookmark-wrap {
-	/* background-color: green; */
 	display: grid;
-	grid-template-columns: repeat(3, 250px); /* 3개의 열을 생성 */
+	grid-template-columns: repeat(3, 250px);
+	/* 3개의 열을 생성 */
 	gap: 20px;
-	justify-content: center; 
+	justify-content: center;
 	align-items: center;
 	height: 300px;
 	overflow: auto;
-	
+
 }
 
-.icon-container, .bg-container {
-	/* background-color: white; */
+.icon-container,
+.bg-container {
 	display: flex;
 	flex-direction: column;
-	/* justify-content: center;  */
 	align-items: center;
-	/* border: 2px solid; */
-
 	cursor: pointer;
 }
 
@@ -179,9 +225,7 @@ section {
 	margin-left: auto;
 	width: 20px;
 	height: 20px;
-    /* background-color: rgba(0, 0, 0, 0.5); */
-	/* border-radius: 50%; */
-    cursor: pointer;
+	cursor: pointer;
 }
 
 /* -------------------------- */
@@ -191,20 +235,15 @@ section {
 .category-main-wrap {
 	width: 100%;
 	height: 100%;
-	/* display: flex; */
-	/* background-color: RED; */
 	border: 2px solid dimgray;
 	border-radius: 10px;
 }
 
 .category-list {
-	/* background-color: gray; */
-	/* border: 2px solid dimgray; */
 	border-radius: 10px;
 }
 
 .category-input {
-	/* background-color: gray; */
 	display: flex;
 	justify-content: space-around;
 }
@@ -212,9 +251,10 @@ section {
 
 .bgChange-wrap {
 	display: grid;
-	grid-template-columns: repeat(3, 100px); /* 3개의 열을 생성 */
+	grid-template-columns: repeat(3, 100px);
+	/* 3개의 열을 생성 */
 	gap: 20px;
-	justify-content: center; 
+	justify-content: center;
 	align-items: center;
 	padding: 50px 0 0 0;
 	height: 250px;
@@ -222,21 +262,20 @@ section {
 }
 
 .shortLink-wrap {
-	/* background-color: antiquewhite; */
 	width: auto;
 	height: auto;
-	padding: 50px 10px 10px 50px  ;
+	padding: 50px 10px 10px 50px;
 	justify-content: center;
 	align-items: center;
 }
 
-.shortLink-wrap > div:last-child {
+.shortLink-wrap>div:last-child {
 	display: flex;
 	padding: 50px 50px;
-	justify-content:flex-end;
+	justify-content: flex-end;
 }
 
-.shortLink-wrap > div:last-child > button {
+.shortLink-wrap>div:last-child>button {
 	margin-left: 50px;
 }
 
@@ -244,7 +283,5 @@ section {
 	position: absolute;
 	top: 0;
 	left: 0;
-	/* width: 100vh; */
-	/* height: 100vh; */
 	background-color: blueviolet;
 }

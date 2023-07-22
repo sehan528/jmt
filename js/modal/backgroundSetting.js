@@ -30,7 +30,7 @@ function generateBgModal() {
 function settingEvent() {
   // 요소들 선언
   const $blackBg = $bgModal.querySelector(".js-black-bg");
-  const $whiteBg = $bgModal.querySelector(".white-bg");
+  const $whiteBg = $bgModal.querySelector(".black-bg");
 
   // console.log($blackBg);
   // console.log($whiteBg);
@@ -54,18 +54,38 @@ function settingEvent() {
   // 3. 아니오 => 아무 동작 없음.
 
 
-  const $iconContainers = $bgModal.querySelectorAll(".icon-container");
+  const $iconContainers = $bgModal.querySelectorAll(".bg-container");
 
   $iconContainers.forEach((changeImg, idx) => {
     changeImg.addEventListener("click", function(e) {
       // Q1. 여기서 changeImg 는 $iconContainers의 idx에 자동 참조하는게 정확한 표현일까요?
       e.stopPropagation();
-      // Q2. stopPropagation을 실행하면 해당 이벤트리스너에 있는 익명 함수만 강제로 look at 하고 빠져나가는것이 옳습니까?
-
-      // 대충 사진 선택
-  
+      // Q2. stopPropagation을 실행하면 해당 이벤트리스너에 있는 익명 함수만 강제로 look at 하고 빠져나가는것이 옳습니까?  
       if(confirm("이 배경화면으로 설정하시겠습니까?")) {
-        alert( (idx+1) + "번 배경으로 " + "변경 되었습니다.")
+        const body = document.querySelector("body");
+        switch (idx) {
+          case 0:
+            body.style.background = "linear-gradient(0deg, #34354a 0%, #000 100%)";
+            break;
+          case 1:
+            body.style.background = "linear-gradient(0deg, #696fda 0%, #dd6a6a 100%)";
+            break;
+          case 2:
+            body.style.background = "linear-gradient(0deg, #27b98f 0%, #c82727 100%)";
+            break;
+          case 3:
+            body.style.background = "linear-gradient(0deg, #a6a7b1 0%, #1fb563 100%)";
+            break;
+          case 4:
+            body.style.background = "linear-gradient(0deg, #1149b1 0%, #222121 100%)";
+            break;
+          case 5:
+            body.style.background = "linear-gradient(0deg, #de9e54 0%, #2c2cc8 100%)";
+            break;
+          default:
+            break;
+        }
+        // alert( (idx+1) + "번 배경으로 " + "변경 되었습니다.");
         $bgModal.remove();
       }
     });

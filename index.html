@@ -6,7 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <link href="./css/index.css" rel="stylesheet">
-  <script src="./js/index.js" type="module" defer ></script>
+  <script src="./js/index.js" type="module" defer></script>
+
+  <script>
+    (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+      key: "",
+      // Add other bootstrap parameters as needed, using camel case.
+      // Use the 'v' parameter to indicate the version to load (alpha, beta, weekly, etc.)
+    });
+  </script>
+
   <!-- defer - 페이지 로드 후 외부 스크립트 실행. -->
   <title>JMT</title>
 </head>
@@ -14,70 +23,44 @@
 
 <body>
   <header>
-    <button type="button" id="bgSettingButton">배경변경</button>
+    <button class="btn" type="button" id="bgSettingButton">배경변경</button>
   </header>
 
 
   <section>
+    <div id="map" style="height: 300px;"></div>
+
     <div id="localInfo" class="local-info-wrap">
       <div id="city" class="local-info-city">
         <div class="location-city">현재 위치한 도시</div>
+        <div class="city-weather">현재 위치한 도시</div>
       </div>
 
       <div class="info">
-        <div id="date" class="local-item local-info-date">5:45 6월 18일 월요일</div>
+        <div id="date" class="local-item local-info-date"></div>
         <div id="weather" class="local-item local-info-weather">cloudy 15℃</div>
       </div>
     </div>
 
     <div id="todo" class="todo-main-wrap">
       <div class="todo-navbar">
-        <!-- <div id="category" class="todo-item"> 카테고리 </div> -->
-        <button id="categoryBtn" type="button">카테고리</button>
-        <div id="innertodo" class="">
-          <input type="text" size="80">
+        <button class="btn" id="categoryBtn" type="button">카테고리</button>
+        <div id="innerTodo" class="">
+          <input id="todoInput" class="input-text" type="text" size="80">
         </div>
-        <!-- <div id="delbutton" class="todo-item">삭제버튼</div> -->
-        <button id="delbutton" type="button">삭제버튼</button>
+        <button class="btn" id="delbutton" type="button">삭제버튼</button>
       </div>
 
-      <div class="todo-inner-wrap">
-        <!-- <div class="todo-container">
-          <div></div>
-          <div id="todoContext">오늘의 할일을 입력하시오? 오늘의 할일은?</div>
-          <input id="todoCheck" class="todo-check" type="checkbox">
-        </div> -->
+      <div class="todo-inner-wrap"></div>
 
-        <!-- <div class="todo-container">
-          <div></div>
-          <div id="todoContext">오늘의 할일을 입력하시오? 오늘의 할일은?</div>
-          <input id="todoCheck" class="todo-check" type="checkbox">
+      <div class="bookmark-wrap">
+        <div id="add-bookmark" class="icon-container">
+          <div class="box"> </div>
+          <img src="https://via.placeholder.com/600" class="imgsize">
+          <div class="icon-name"> 추가하기 </div>
         </div>
 
-        <div class="todo-container">
-          <div></div>
-          <div id="todoContext">오늘의 할일을 입력하시오? 오늘의 할일은? 없습니다요~</div>
-          <input id="todoCheck" class="todo-check" type="checkbox">
-        </div>
-      </div> -->
-    </div>
-
-    <div class="bookmark-wrap">
-
-      <!-- <div class="icon-container">
-        <img src="https://cdn-icons-png.flaticon.com/512/17/17764.png" class="box">
-        <img src="https://via.placeholder.com/600" class="imgsize">
-        <div class="icon-name"> 아이콘 </div>
-      </div> -->
-
-
-      <div id="add-bookmark" class="icon-container">
-        <div class="box"> </div>
-        <img src="https://via.placeholder.com/600" class="imgsize">
-        <div class="icon-name"> 추가하기 </div>
       </div>
-
-    </div>
   </section>
 
 
@@ -86,52 +69,52 @@
 
   <template id="catSettingModalTemplate">
     <div id="catSettingModal">
-      <div class="black-bg js-black-bg">
-        <div  class="white-bg">
+      <div class="dimmer-bg js-black-bg">
+        <div class="black-bg">
           <div id="category" class="category-main-wrap">
-  
+
             <header>
               <div class="header-name"> 카테고리 </div>
-              <button type="button">적용</button>
+              <button class="btn" type="button">적용</button>
             </header>
-  
+
             <div class="category-list">
               <div id="category" class="category-input">
                 <input type="text">
-                <button type="button">추가</button>
+                <button class="btn" type="button">추가</button>
               </div>
-  
+
               <div class="todo-inner-wrap category-array">
                 <div class="todo-container">
                   <div></div>
                   <div id="todoContext">내용</div>
-                  <input id="todoCheck" class="todo-check" type="checkbox">
+                  <input id="todoCheck" class="todo-check custom-checkbox" type="checkbox">
                 </div>
-  
+
                 <div class="todo-container">
                   <div></div>
                   <div id="todoContext">내용</div>
-                  <input id="todoCheck" class="todo-check" type="checkbox">
+                  <input id="todoCheck" class="todo-check custom-checkbox" type="checkbox">
                 </div>
-  
+
                 <div class="todo-container">
                   <div></div>
                   <div id="todoContext">내용</div>
-                  <input id="todoCheck" class="todo-check" type="checkbox">
+                  <input id="todoCheck" class="todo-check custom-checkbox" type="checkbox">
                 </div>
-  
+
                 <div class="todo-container">
                   <div></div>
                   <div id="todoContext">내용</div>
-                  <input id="todoCheck" class="todo-check" type="checkbox">
+                  <input id="todoCheck" class="todo-check custom-checkbox" type="checkbox">
                 </div>
-  
+
                 <div class="todo-container">
                   <div></div>
                   <div id="todoContext">내용</div>
-                  <input id="todoCheck" class="todo-check" type="checkbox">
+                  <input id="todoCheck" class="todo-check custom-checkbox" type="checkbox">
                 </div>
-  
+
               </div>
             </div>
           </div>
@@ -142,8 +125,8 @@
 
   <template id="bgSettingModalTemplate">
     <div id="bgSettingModal">
-      <div class="black-bg js-black-bg">
-        <div class="white-bg">
+      <div class="dimmer-bg js-black-bg">
+        <div class="black-bg">
           <div id="category" class="category-main-wrap">
 
             <header>
@@ -186,14 +169,14 @@
 
   <template id="favoriteLinkModalTemplate">
     <div id="favoriteModel">
-      <div class="black-bg js-black-bg">
-        <div class="white-bg">
+      <div class="dimmer-bg js-black-bg">
+        <div class="black-bg">
           <div id="category" class="category-main-wrap">
-  
+
             <header>
               <div class="header-name"> 바로가기 추가 </div>
             </header>
-  
+
             <div id="shortLink" class="shortLink-wrap">
               <div>
                 <p>이름</p>
@@ -201,13 +184,13 @@
                 <p>URL</p>
                 <input class="bookmark-url" type="text" size="35">
               </div>
-  
+
               <div>
-                <button class="cancel" type="button">취소</button>
-                <button class="submit" type="button">등록</button>
+                <button class="btn cancel" type="button">취소</button>
+                <button class="btn submit" type="button">등록</button>
               </div>
             </div>
-  
+
           </div>
         </div>
       </div>
@@ -222,6 +205,17 @@
     </div>
   </template>
 
+  <template id="todoTemplate">
+    <div class="todo-container" data-id="고유 아이디">
+      <div></div>
+      <div class="js-todo-context"></div>
+      <input id="js-todo-check custom-checkboxbox" class="todo-check custom-checkbox" type="checkbox">
+    </div>
+  </template>
+
+
+
 </body>
+
 
 </html>
